@@ -1,0 +1,34 @@
+# data and photos: never commit
+data/
+eval/photos/
+eval/crops/
+**/data/
+*.jpg
+*.jpeg
+*.png
+*.heic
+*.webp
+!docs/**/*.png
+
+# models (downloaded by script)
+services/face/models/*.onnx
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# node
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+*.local
+
+# os / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
