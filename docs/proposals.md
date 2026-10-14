@@ -1,29 +1,29 @@
 # Proposals
 
-Each proposal gives a recommendation, the reasons for it, the alternatives considered, and what would make us change our minds. Status values: **Proposed** (needs the owner's OK), **Accepted**, **Rejected**. Move a proposal to Accepted in [`decisions.md`](decisions.md) once agreed.
+Each proposal gives a recommendation, the reasons for it, the alternatives considered, and what would make us change our minds. **All of P1–P18 were accepted by the owner on 2026-10-14** (decision D3). To change one, add a new decision in [`decisions.md`](decisions.md) and update the proposal's status.
 
 Summary:
 
 | # | Topic | Recommendation | Status |
 |---|---|---|---|
-| P1 | Where face data lives | Per-gallery Durable Object with SQLite storage; D1 only for global tables | Proposed |
-| P2 | Clustering mode in v1 | Full recluster per run plus stable ID mapping; no incremental assignment | Proposed |
-| P3 | How corrections are stored | Face locks plus person-level cannot-links, not face-pair constraints | Proposed |
-| P4 | Clustering algorithm | Evaluate three (agglomerative average-linkage, Chinese Whispers, Immich-style DBSCAN); choose by data | Proposed |
-| P5 | Embedding model | SFace primary; AuraFace challenger; InsightFace commercial licence as paid fallback | Proposed |
-| P6 | Thumbnails and web sizes | Generate in the Container during processing, store in R2 | Proposed |
-| P7 | Photographer auth | Email magic link plus session cookie (sessions in D1) | Proposed |
-| P8 | Uploads | Uppy in the browser, one request per photo to the Worker, streamed to R2 | Proposed |
-| P9 | Processing pipeline | Queue per photo, batched consumer, image streamed to the Container, JSON out | Proposed |
-| P10 | Data location | EU jurisdiction for R2, D1, Durable Objects and Containers | Proposed |
-| P11 | Consent model | Opt-in per gallery, host consent, guest notice, PIN gating, guest opt-out; lawyer sign-off | Proposed |
-| P12 | Frontend | React + Vite served by Workers static assets; PhotoSwipe, react-photo-album, Uppy, TanStack Query | Proposed |
-| P13 | Guest corrections | "Not me" is a suggestion for the photographer, not an automatic edit | Proposed |
-| P14 | "Hide me" semantics | Faces excluded, embeddings and crops deleted; only the hidden person's centroid kept until expiry to block re-creation | Proposed |
-| P15 | Evaluation metrics | Add guest-visible photo precision and cluster purity next to pairwise and BCubed; report per tag (occlusion, pose, group size) | Proposed |
+| P1 | Where face data lives | Per-gallery Durable Object with SQLite storage; D1 only for global tables | Accepted |
+| P2 | Clustering mode in v1 | Full recluster per run plus stable ID mapping; no incremental assignment | Accepted |
+| P3 | How corrections are stored | Face locks plus person-level cannot-links, not face-pair constraints | Accepted |
+| P4 | Clustering algorithm | Evaluate three (agglomerative average-linkage, Chinese Whispers, Immich-style DBSCAN); choose by data | Accepted |
+| P5 | Embedding model | SFace primary; AuraFace challenger; InsightFace commercial licence as paid fallback | Accepted |
+| P6 | Thumbnails and web sizes | Generate in the Container during processing, store in R2 | Accepted |
+| P7 | Photographer auth | Email magic link plus session cookie (sessions in D1) | Accepted |
+| P8 | Uploads | Uppy in the browser, one request per photo to the Worker, streamed to R2 | Accepted |
+| P9 | Processing pipeline | Queue per photo, batched consumer, image streamed to the Container, JSON out | Accepted |
+| P10 | Data location | EU jurisdiction for R2, D1, Durable Objects and Containers | Accepted |
+| P11 | Consent model | Opt-in per gallery, host consent, guest notice, PIN gating, guest opt-out; lawyer sign-off | Accepted |
+| P12 | Frontend | React + Vite served by Workers static assets; PhotoSwipe, react-photo-album, Uppy, TanStack Query | Accepted |
+| P13 | Guest corrections | "Not me" is a suggestion for the photographer, not an automatic edit | Accepted |
+| P14 | "Hide me" semantics | Faces excluded, embeddings and crops deleted; only the hidden person's centroid kept until expiry to block re-creation | Accepted |
+| P15 | Evaluation metrics | Add guest-visible photo precision and cluster purity next to pairwise and BCubed; report per tag (occlusion, pose, group size) | Accepted |
 | P16 | Docs and session structure | Short CLAUDE.md for rules; spec and plan in `docs/`; one prompt per step | Accepted (this repo) |
-| P17 | Group photos (many people per photo) | Adaptive tiled detection, same-photo cannot-link, a `photo_persons` index for AND queries, group-aware UI | Proposed |
-| P18 | Partially covered faces | Two tiers: "core" faces cluster, "partial" faces only attach to an existing person with a strict threshold and margin; occlusion score from landmarks, detector score and feature norm | Proposed |
+| P17 | Group photos (many people per photo) | Adaptive tiled detection, same-photo cannot-link, a `photo_persons` index for AND queries, group-aware UI | Accepted |
+| P18 | Partially covered faces | Two tiers: "core" faces cluster, "partial" faces only attach to an existing person with a strict threshold and margin; occlusion score from landmarks, detector score and feature norm | Accepted |
 
 ---
 

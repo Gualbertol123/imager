@@ -4,28 +4,49 @@ This is the handoff file between Claude Code sessions. Each build step runs in a
 
 ## Current position
 
-- **Last completed step:** 0 (planning docs written)
+- **Last completed step:** 0 (planning docs; proposals accepted; prepared for step 01)
 - **Next step:** 01, [`prompts/01-scaffold.md`](../prompts/01-scaffold.md)
-- **Blocked on:** owner answers D1–D3 in [`decisions.md`](decisions.md)
+- **Blocked on:** `uv` must be installed (see Environment). D1 (photos) is only needed from step 02.
 - **Gates passed:** none
+
+## Environment (owner's machine, checked 2026-10-14)
+
+Windows 11 Enterprise. The repo is at `C:\Users\U508169\Downloads\claude\imager\repo`.
+
+| Tool | Status | Needed by | Install |
+|---|---|---|---|
+| Git | 2.56 ✓ | — | — |
+| Python | 3.12.7 ✓ (`py -3.12`) | step 1 | — |
+| winget | ✓ | — | — |
+| WSL | present (not yet checked whether WSL2 is set up) | step 6 | `wsl --install` if needed |
+| **uv** | **missing** | **step 1** | `winget install astral-sh.uv` (fallback: `py -3.12 -m pip install --user uv`) |
+| Node 22 + pnpm | missing | step 1 creates only `package.json` files, so not strictly needed; required from step 8 | `winget install OpenJS.NodeJS.LTS`, then `corepack enable` |
+| Docker Desktop (WSL2) | missing | step 6 | `winget install Docker.DockerDesktop` (may need admin rights on a corporate machine) |
+| GitHub CLI | missing | optional (CI in step 15) | `winget install GitHub.cli` |
+
+After installing, **open a new terminal** so PATH updates, then check with `uv --version`.
 
 ## Verify-previous-step commands
 
 These are the commands the next session runs first to confirm the repo is healthy. Each step replaces this list with the commands that prove its own "Done when".
 
 ```
-(none yet; step 01 adds: cd services/face && uv run pytest && uv run ruff check .)
+git status            # must be clean
+git log --oneline -3  # last commit is the planning/prep commit
+uv --version          # must succeed before step 01 starts
 ```
 
 ## Step log
 
 | Step | Date | Result | Report | Notes for the next session |
 |---|---|---|---|---|
-| 0 | 2026-10-14 | Planning docs, proposals P1–P18, 15 prompts | — | Start with prompt 01 once D1–D3 are answered |
+| 0 | 2026-10-14 | Planning docs, proposals P1–P18, 15 prompts | — | — |
+| 0b | 2026-10-14 | Owner accepted P1–P18; decisions D3, D6–D8, D11–D13 recorded; tools checked; `data/event1/` created locally | — | Step 01: use plain commands + pnpm scripts (D13), no justfile. Don't install Node in step 01 |
 
 ## Known issues and loose ends
 
-- (none)
+- SFace training-data provenance is unknown; it is in the legal briefing (Track L).
+- Email provider (D5) is open; needed in step 08.
 
 ## Deviations from the spec
 
