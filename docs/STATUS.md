@@ -6,7 +6,7 @@ This is the handoff file between Claude Code sessions. Each build step runs in a
 
 - **Last completed step:** 0 (planning docs; proposals accepted; prepared for step 01)
 - **Next step:** 01, [`prompts/01-scaffold.md`](../prompts/01-scaffold.md)
-- **Blocked on:** `uv` must be installed (see Environment). D1 (photos) is only needed from step 02.
+- **Blocked on:** nothing for step 01. D1 (photos) is needed from step 02.
 - **Gates passed:** none
 
 ## Environment (owner's machine, checked 2026-10-14)
@@ -19,9 +19,9 @@ Windows 11 Enterprise. The repo is at `C:\Users\U508169\Downloads\claude\imager\
 | Python | 3.12.7 ✓ (`py -3.12`) | step 1 | — |
 | winget | ✓ | — | — |
 | WSL | present (not yet checked whether WSL2 is set up) | step 6 | `wsl --install` if needed |
-| **uv** | **missing** | **step 1** | `winget install astral-sh.uv` (fallback: `py -3.12 -m pip install --user uv`) |
-| Node 22 + pnpm | missing | step 1 creates only `package.json` files, so not strictly needed; required from step 8 | `winget install OpenJS.NodeJS.LTS`, then `corepack enable` |
-| Docker Desktop (WSL2) | missing | step 6 | `winget install Docker.DockerDesktop` (may need admin rights on a corporate machine) |
+| uv | 0.13.1 ✓ installed with `pip --user` (winget source is blocked on this machine); `%APPDATA%PythonPython312Scripts` added to the user PATH | step 1 | — |
+| Node 22 + pnpm | missing | required from step 8 (step 1 only writes package.json files) | winget is blocked here: use the nodejs.org user installer or ask IT, then `corepack enable` |
+| Docker Desktop (WSL2) | missing | step 6 | winget is blocked here, so install from docker.com or ask IT (likely needs admin rights) |
 | GitHub CLI | missing | optional (CI in step 15) | `winget install GitHub.cli` |
 
 After installing, **open a new terminal** so PATH updates, then check with `uv --version`.
