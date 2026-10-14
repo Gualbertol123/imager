@@ -17,12 +17,12 @@ Windows 11 Enterprise. The repo is at `C:\Users\U508169\Downloads\claude\imager\
 |---|---|---|---|
 | Git | 2.56 ✓ | — | — |
 | Python | 3.12.7 ✓ (`py -3.12`) | step 1 | — |
-| winget | ✓ | — | — |
+| winget | installed, but its package source fails (`0x8a15000f`, likely corporate policy) | — | ask IT, or use the vendor installers |
 | WSL | present (not yet checked whether WSL2 is set up) | step 6 | `wsl --install` if needed |
-| uv | 0.13.1 ✓ installed with `pip --user` (winget source is blocked on this machine); `%APPDATA%PythonPython312Scripts` added to the user PATH | step 1 | — |
+| uv | 0.13.1 ✓ installed with `pip --user` (winget source is blocked on this machine); `%APPDATA%\Python\Python312\Scripts` added to the user PATH | step 1 | — |
 | Node 22 + pnpm | missing | required from step 8 (step 1 only writes package.json files) | winget is blocked here: use the nodejs.org user installer or ask IT, then `corepack enable` |
 | Docker Desktop (WSL2) | missing | step 6 | winget is blocked here, so install from docker.com or ask IT (likely needs admin rights) |
-| GitHub CLI | missing | optional (CI in step 15) | `winget install GitHub.cli` |
+| GitHub CLI | missing | optional (CI in step 15) | installer from cli.github.com |
 
 After installing, **open a new terminal** so PATH updates, then check with `uv --version`.
 
